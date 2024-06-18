@@ -6,7 +6,7 @@ export default function Register() {
   const [password, setPassword] = useState("");
   async function register(ev) {
     ev.preventDefault();
-    const response = await fetch("http://localhost:4000/api/register", {
+    const response = await fetch("blog-mern-aeswa9erw-juhis-projects-210887f5.vercel.app/api/register", {
       method: "POST",
       body: JSON.stringify({ username, email, password }),
       headers: { "Content-Type": "application/json" },

@@ -10,7 +10,7 @@ export default function Login() {
 
   async function login(ev) {
     ev.preventDefault();
-    const response = await fetch("http://localhost:4000/api/login", {
+    const response = await fetch("blog-mern-aeswa9erw-juhis-projects-210887f5.vercel.app/api/login", {
       method: "POST",
       body: JSON.stringify({ email, password }),
       headers: { "Content-Type": "application/json" },
