@@ -5,7 +5,7 @@ const dbConnection = require("./config/db");
 const userRoutes = require("./routes/user");
 const app = express();
 
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+app.use(cors({ credentials: true, origin: "blog-mern-froentend-2aabkxyd6-juhis-projects-210887f5.vercel.app" }));
 app.use(express.json());
 app.use(cookieParser());
 app.use("/uploads", express.static(__dirname + "/uploads"));
