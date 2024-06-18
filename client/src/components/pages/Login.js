@@ -1,6 +1,8 @@
 import { useState, useContext } from "react";
 import { Navigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
+import { API_URL } from "../../config"; 
+
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -10,7 +12,7 @@ export default function Login() {
 
   async function login(ev) {
     ev.preventDefault();
-    const response = await fetch("blog-mern-aeswa9erw-juhis-projects-210887f5.vercel.app/api/login", {
+    const response = await fetch(`${API_URL}/api/login`, {
       method: "POST",
       body: JSON.stringify({ email, password }),
       headers: { "Content-Type": "application/json" },

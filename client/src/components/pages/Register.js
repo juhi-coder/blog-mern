@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { API_URL } from "../../config";
 
 export default function Register() {
   const [username, setUsername] = useState("");
@@ -6,7 +7,7 @@ export default function Register() {
   const [password, setPassword] = useState("");
   async function register(ev) {
     ev.preventDefault();
-    const response = await fetch("blog-mern-aeswa9erw-juhis-projects-210887f5.vercel.app/api/register", {
+    const response = await fetch(`${API_URL}/api/register`, {
       method: "POST",
       body: JSON.stringify({ username, email, password }),
       headers: { "Content-Type": "application/json" },

@@ -1,5 +1,7 @@
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
+import { API_URL } from "../config";
+
 export default function Post({
   _id,
   title,
@@ -13,7 +15,7 @@ export default function Post({
     <div className="post">
       <div className="image">
         <Link to={`/post/${_id}`}>
-          <img src={"blog-mern-aeswa9erw-juhis-projects-210887f5.vercel.app/" + cover} />
+          <img src={`${API_URL}/` + cover} />
         </Link>
       </div>
       <div className="texts">

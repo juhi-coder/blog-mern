@@ -1,11 +1,13 @@
 import { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import {UserContext} from './context/UserContext';
+import { API_URL } from "../config";
+
 
 function Header() {
 const {userInfo,setUserInfo}=useContext(UserContext);
   useEffect(() => {
-    fetch("blog-mern-aeswa9erw-juhis-projects-210887f5.vercel.app/api/profile", {
+    fetch(`${API_URL}/api/profile`, {
       credentials: "include",
     }).then((response) => {
       response.json().then((userInfo) => {
@@ -15,7 +17,7 @@ const {userInfo,setUserInfo}=useContext(UserContext);
   }, []);
 
   function logout() {
-    fetch("http://localhost:4000/api/logout", {
+    fetch(`${API_URL}/logout`, {
       credentials: "include",
       method: "POST",
     });

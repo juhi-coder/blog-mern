@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import Post from "../Post";
+import { API_URL } from "../../config"; 
+
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    fetch("blog-mern-aeswa9erw-juhis-projects-210887f5.vercel.app/api/post").then((response) => {
+    fetch(`${API_URL}/api/post`).then((response) => {
       response.json().then((posts) => {
         setPosts(posts);
       });

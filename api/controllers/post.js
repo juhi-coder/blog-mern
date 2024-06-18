@@ -4,7 +4,7 @@ const fs = require("fs");
 const postModel = require("../models/post");
 const jwt = require("jsonwebtoken");
 
-const secret = "juhikumari";
+const secret = process.env.SECRET_KEY;
 
 const createPost = async (req, res) => {
   const { originalname, path } = req.file;

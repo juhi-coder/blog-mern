@@ -2,13 +2,14 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { formatISO9075 } from "date-fns";
 import { UserContext } from "../context/UserContext";
+import { API_URL } from "../../config";
 
 export default function PostPage() {
   const [postInfo, setPostInfo] = useState(null);
   const { userInfo } = useContext(UserContext);
   const { id } = useParams();
   useEffect(() => {
-    fetch(`blog-mern-aeswa9erw-juhis-projects-210887f5.vercel.app/api/post/${id}`).then((response) => {
+    fetch(`${API_URL}/api/post/${id}`).then((response) => {
       response.json().then((postInfo) => {
         setPostInfo(postInfo);
       });
@@ -43,7 +44,7 @@ export default function PostPage() {
         </div>
       )}
       <div className="image">
-        <img src={`blog-mern-aeswa9erw-juhis-projects-210887f5.vercel.app/${postInfo.cover}`} />
+        <img src={`${API_URL}/${postInfo.cover}`} />
       </div>
       <div
         className="content"

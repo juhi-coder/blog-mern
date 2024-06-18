@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import "react-quill/dist/quill.snow.css";
-import Editor from "../../Editor";
+import Editor from "../Editor";
 import { Navigate, useParams } from "react-router-dom";
+import { API_URL } from "../../config";
 
 export default function EditPost() {
   const { id } = useParams();
@@ -12,7 +13,7 @@ export default function EditPost() {
   const [redirect, setReDirect] = useState(false);
 
   useEffect(() => {
-    fetch(`blog-mern-aeswa9erw-juhis-projects-210887f5.vercel.app/api/post/${id}`).then((response) => {
+    fetch(`${API_URL}/api/post/${id}`).then((response) => {
       response.json().then((postInfo) => {
         setTitle(postInfo.title);
         setSummary(postInfo.summary);
@@ -35,7 +36,7 @@ export default function EditPost() {
     console.log([...data.entries()]); // Log the FormData content for debugging
 
     try {
-      const response = await fetch("blog-mern-aeswa9erw-juhis-projects-210887f5.vercel.app/api/post", {
+      const response = await fetch(`${API_URL}/api/post`, {
         method: "PUT",
         body: data,
         credentials: "include",

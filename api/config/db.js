@@ -1,16 +1,15 @@
 const mongoose = require("mongoose");
 
- function dbConnection() {
-  mongoose
-    .connect(
-      "mongodb+srv://juhi:juhi@cluster0.kdsz8cd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-    )
-    .then(() => {
-      console.log("database suceesfully created");
-    })
-    .catch((e) => {
-      console.log("Error connecting to mongodb", e);
+async function dbConnection() {
+  try {
+    await mongoose.connect(process.env.DB_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
     });
+    console.log("Database successfully connected");
+  } catch (error) {
+    console.error("Error connecting to MongoDB:", error);
+  }
 }
 
-module.exports=dbConnection;
+module.exports = dbConnection;
