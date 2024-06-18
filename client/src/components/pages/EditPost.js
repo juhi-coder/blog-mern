@@ -12,7 +12,7 @@ export default function EditPost() {
   const [redirect, setReDirect] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/api/post/${id}`).then((response) => {
+    fetch(`blog-mern-aeswa9erw-juhis-projects-210887f5.vercel.app/api/post/${id}`).then((response) => {
       response.json().then((postInfo) => {
         setTitle(postInfo.title);
         setSummary(postInfo.summary);
@@ -35,7 +35,7 @@ export default function EditPost() {
     console.log([...data.entries()]); // Log the FormData content for debugging
 
     try {
-      const response = await fetch("http://localhost:4000/api/post", {
+      const response = await fetch("blog-mern-aeswa9erw-juhis-projects-210887f5.vercel.app/api/post", {
         method: "PUT",
         body: data,
         credentials: "include",
