@@ -5,7 +5,7 @@ const dbConnection = require("./config/db");
 const userRoutes = require("./routes/user");
 require("dotenv").config();
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 const app = express();
 
 app.use(cors({ credentials: true, origin: true }));
