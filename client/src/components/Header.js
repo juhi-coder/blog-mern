@@ -5,7 +5,7 @@ import {UserContext} from './context/UserContext';
 function Header() {
 const {userInfo,setUserInfo}=useContext(UserContext);
   useEffect(() => {
-    fetch("http://localhost:4000/api/profile", {
+    fetch("blog-mern-aeswa9erw-juhis-projects-210887f5.vercel.app/api/profile", {
       credentials: "include",
     }).then((response) => {
       response.json().then((userInfo) => {
