@@ -19,7 +19,7 @@ function CreatePost() {
     data.set("file", files[0]);
     ev.preventDefault();
     console.log(files);
-    const response = await fetch("http://localhost:4000/api/post", {
+    const response = await fetch("blog-mern-aeswa9erw-juhis-projects-210887f5.vercel.app/api/post", {
       method: "POST",
       body: data,
       credentials: "include",
