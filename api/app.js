@@ -2,7 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const dbConnection = require("./config/db");
-const userRoutes = require("./routes/user");
+const userRoutes = require("./routes/userRoute");
+const postRoutes = require("./routes/postRoute"); // Make sure to import the post routes
 require("dotenv").config();
 
 const port = process.env.PORT || 3000;
@@ -15,7 +16,8 @@ app.use("/uploads", express.static(__dirname + "/uploads"));
 
 dbConnection();
 
-app.use("/api", userRoutes);
+app.use("/auth", userRoutes);
+app.use("/blog", postRoutes); // Use the post routes
 
 app.get("/", (req, res) => {
   res.send("hi , i am live...");
