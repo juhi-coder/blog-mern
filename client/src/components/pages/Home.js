@@ -6,7 +6,7 @@ import { API_URL } from "../../config";
 export default function Home() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    fetch(`${API_URL}/api/post`).then((response) => {
+    fetch(`${API_URL}/blog/post`).then((response) => {
       response.json().then((posts) => {
         setPosts(posts);
       });

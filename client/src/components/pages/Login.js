@@ -12,7 +12,7 @@ export default function Login() {
 
   async function login(ev) {
     ev.preventDefault();
-    const response = await fetch(`${API_URL}/api/login`, {
+    const response = await fetch(`${API_URL}/auth/login`, {
       method: "POST",
       body: JSON.stringify({ email, password }),
       headers: { "Content-Type": "application/json" },
@@ -21,6 +21,12 @@ export default function Login() {
     if (response.status === 200) {
       response.json().then((userInfo) => {
         setUserInfo(userInfo);
+         // Assuming your backend returns a token
+         const token = userInfo.token;
+
+         // Store token securely
+         localStorage.setItem("token", token);
+ 
         setRedirect(true);
       });
     } else {
@@ -35,7 +41,7 @@ export default function Login() {
     <form className="login" onSubmit={login}>
       <h1>Login</h1>
       <input
-        type="text"
+        type="email"
         placeholder="email"
         value={email}
         onChange={(ev) => setEmail(ev.target.value)}

@@ -7,7 +7,7 @@ export default function Register() {
   const [password, setPassword] = useState("");
   async function register(ev) {
     ev.preventDefault();
-    const response = await fetch(`${API_URL}/api/register`, {
+    const response = await fetch(`${API_URL}/auth/register`, {
       method: "POST",
       body: JSON.stringify({ username, email, password }),
       headers: { "Content-Type": "application/json" },
@@ -29,7 +29,7 @@ export default function Register() {
         onChange={(ev) => setUsername(ev.target.value)}
       />
       <input
-        type="text"
+        type="email"
         placeholder="email"
         value={email}
         onChange={(ev) => setEmail(ev.target.value)}

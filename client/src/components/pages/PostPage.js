@@ -9,7 +9,7 @@ export default function PostPage() {
   const { userInfo } = useContext(UserContext);
   const { id } = useParams();
   useEffect(() => {
-    fetch(`${API_URL}/api/post/${id}`).then((response) => {
+    fetch(`${API_URL}/blog/post/${id}`).then((response) => {
       response.json().then((postInfo) => {
         setPostInfo(postInfo);
       });
