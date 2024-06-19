@@ -42,7 +42,7 @@ function Header() {
   }, [setUserInfo]);
 
   function logout() {
-    fetch(`${API_URL}/logout`, {
+    fetch(`${API_URL}/auth/logout/`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${getToken()}`,
